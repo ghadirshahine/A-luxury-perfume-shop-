@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>المتجر — تصفّح كل العطور | دار الأُمراء</title>
+  <meta name="description" content="تصفّح مجموعة دار الأُمراء الكاملة: عطور رجالية ونسائية وشرقية، عود، مسك، بخور وأطقم هدايا. فلترة ذكية حسب العائلة العطرية والسعر والعلامة والتركيز.">
+  <meta name="theme-color" content="#0B0B0B">
+  <link rel="canonical" href="https://dar-alumara.example.com/shop.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="دار الأُمراء">
+  <meta property="og:title" content="المتجر — كل عطور دار الأُمراء">
+  <meta property="og:description" content="عود، مسك، بخور وعطور شرقية وغربية — فلترة ذكية وتوصيل سريع داخل سوريا.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:locale" content="ar_SY">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://dar-alumara.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "المتجر", "item": "https://dar-alumara.example.com/shop.html" }
+    ]
+  }
+  </script>
+</head>
+<body data-page="shop">
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="مسار التصفح">
+          <a href="index.html">الرئيسية</a>
+          <span class="sep"><svg class="ic"><use href="#i-chevron-left"/></svg></span>
+          <span aria-current="page" id="crumbCurrent">المتجر</span>
+        </nav>
+        <h1 id="shopTitle">كل العطور</h1>
+        <p class="ph-sub" id="shopSub">اكتشف مجموعتنا الكاملة من العطور الفاخرة — استخدم الفلاتر للوصول إلى عطرك المثالي بسرعة.</p>
+        <div class="chips quick-cats" id="quickCats" aria-label="تصفّح سريع حسب التصنيف"></div>
+      </div>
+    </div>
+
+    <section class="section tight">
+      <div class="container">
+        <div class="shop-layout">
+
+          <!-- لوحة الفلاتر (سطح المكتب) -->
+          <aside class="shop-aside" aria-label="فلاتر البحث">
+            <div class="aside-head">
+              <h2><svg class="ic ic-sm"><use href="#i-sliders"/></svg> الفلاتر</h2>
+              <button class="cl-link" id="clearFiltersTop" type="button">مسح الكل</button>
+            </div>
+            <div id="shopFilters"></div>
+          </aside>
+
+          <!-- النتائج -->
+          <div class="shop-main">
+            <div class="filter-bar" id="filterBar">
+              <button class="btn btn-outline btn-sm filters-btn" id="openFilters" type="button" aria-haspopup="dialog">
+                <svg class="ic ic-xs"><use href="#i-filter"/></svg> الفلاتر
+                <span class="fb-badge" id="filterCount" hidden>0</span>
+              </button>
+              <span class="fb-count" id="resultCount" aria-live="polite"></span>
+              <label class="sr-only" for="sortSel">ترتيب النتائج</label>
+              <select class="select" id="sortSel">
+                <option value="best">الأكثر مبيعًا</option>
+                <option value="new">الأحدث</option>
+                <option value="rating">الأعلى تقييمًا</option>
+                <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
+                <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
+              </select>
+            </div>
+
+            <div class="active-chips" id="activeChips"></div>
+
+            <div class="grid-cards" id="shopGrid" aria-busy="true">
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+              <div class="pcard sk"><div class="sk-box sk-media"></div><div class="pcard-body"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div></div>
+            </div>
+
+            <nav class="pager" id="shopPager" aria-label="التنقل بين الصفحات" hidden></nav>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- لوحة الفلاتر (الجوال) -->
+  <aside class="filter-sheet" id="filterSheet" role="dialog" aria-modal="true" aria-label="فلاتر البحث" hidden>
+    <header class="sheet-head">
+      <h2>الفلاتر</h2>
+      <button class="icon-btn" type="button" data-close aria-label="إغلاق الفلاتر"><svg class="ic"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet-body" id="filterSheetBody"></div>
+    <footer class="sheet-foot">
+      <button class="btn btn-ghost" id="clearFilters" type="button">مسح الكل</button>
+      <button class="btn btn-gold" id="applyFilters" type="button" data-close>عرض النتائج</button>
+    </footer>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

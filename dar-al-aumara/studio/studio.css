@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap');
+
+:root {
+  --aumara-ink: #0b0b0b;
+  --aumara-panel: #14110d;
+  --aumara-gold: #cbaa6c;
+  --aumara-ivory: #f4e7c8;
+  --aumara-text: #c9bfae;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  font-family: 'Tajawal', 'Segoe UI', sans-serif;
+}
+
+.studio-overview {
+  direction: rtl;
+  max-width: 1120px;
+  padding: 32px;
+  color: var(--aumara-ivory);
+  font-family: 'Tajawal', sans-serif;
+}
+
+.studio-overview__eyebrow {
+  margin: 0 0 8px;
+  color: var(--aumara-gold);
+  font-size: 13px;
+}
+
+.studio-overview h1 {
+  margin: 0 0 24px;
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+}
+
+.studio-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.studio-overview__metric {
+  border: 1px solid rgb(203 170 108 / 22%);
+  background: var(--aumara-panel);
+  padding: 20px;
+  color: var(--aumara-text);
+}
+
+.studio-overview__metric strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--aumara-ivory);
+  font-size: 25px;
+}

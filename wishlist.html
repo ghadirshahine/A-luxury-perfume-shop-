@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>قائمة المفضلة | دار الأُمراء</title>
+  <meta name="description" content="قائمة المفضلة في دار الأُمراء: احفظ عطورك المفضلة، تابع انخفاض الأسعار، وانقل ما تحب إلى السلة بضغطة واحدة.">
+  <meta name="theme-color" content="#0B0B0B">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://dar-alumara.example.com/wishlist.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="دار الأُمراء">
+  <meta property="og:title" content="قائمة المفضلة — دار الأُمراء">
+  <meta property="og:description" content="عطورك المحفوظة في مكان واحد — نراقب الأسعار نيابة عنك.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:locale" content="ar_SY">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://dar-alumara.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "قائمة المفضلة", "item": "https://dar-alumara.example.com/wishlist.html" }
+    ]
+  }
+  </script>
+</head>
+<body data-page="wishlist">
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="مسار التصفح">
+          <a href="index.html">الرئيسية</a>
+          <span class="sep"><svg class="ic"><use href="#i-chevron-left"/></svg></span>
+          <span aria-current="page">قائمة المفضلة</span>
+        </nav>
+        <h1>قائمة المفضلة</h1>
+        <p class="ph-sub" id="wishSub">احفظ العطور التي تعجبك هنا — نراقب الأسعار ونُعلمك فور أي انخفاض.</p>
+        <div class="wish-head-actions">
+          <button class="btn btn-gold btn-sm" id="wishAddAll" type="button" hidden>
+            <svg class="ic ic-xs"><use href="#i-cart"/></svg> أضف الكل إلى السلة
+          </button>
+          <a class="btn btn-outline btn-sm" href="shop.html">
+            <svg class="ic ic-xs"><use href="#i-plus"/></svg> أضف عطورًا جديدة
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section tight">
+      <div class="container">
+        <div id="wishList" aria-busy="true" aria-live="polite">
+          <div class="wish-list">
+            <div class="wrow sk"><div class="sk-box" style="width:96px;height:96px"></div><div><div class="sk-line w40"></div><div class="sk-line w70"></div><div class="sk-line w30"></div></div><div class="sk-box sk-btn" style="width:150px"></div></div>
+            <div class="wrow sk"><div class="sk-box" style="width:96px;height:96px"></div><div><div class="sk-line w40"></div><div class="sk-line w70"></div><div class="sk-line w30"></div></div><div class="sk-box sk-btn" style="width:150px"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قد يعجبك أيضًا -->
+    <section class="section band" id="wishReco" hidden>
+      <div class="container">
+        <div class="section-head">
+          <div><h2>قد يعجبك أيضًا</h2><p class="sh-sub">بناءً على العطور التي حفظتها وزرتها</p></div>
+          <a class="sec-link" href="shop.html">تصفّح المتجر <svg class="ic"><use href="#i-chevron-left"/></svg></a>
+        </div>
+        <div class="rail-wrap reveal">
+          <button class="rail-btn next" type="button" data-rail="railWishRec" data-dir="next" aria-label="التالي"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+          <button class="rail-btn prev" type="button" data-rail="railWishRec" data-dir="prev" aria-label="السابق"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+          <div class="rail" id="railWishRec"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/wishlist.js"></script>
+</body>
+</html>

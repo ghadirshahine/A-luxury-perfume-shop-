@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>الهدايا الفاخرة | دار الأُمراء</title>
+  <meta name="description" content="قسم الهدايا في دار الأُمراء: اختر العطر حسب المناسبة، أضف تغليفًا فاخرًا بالشريط الذهبي، واكتب رسالة إهداء شخصية — هدايا أعياد الميلاد والزواج والتخرج وعيد الأم والأب والهدايا الرسمية.">
+  <meta name="theme-color" content="#0B0B0B">
+  <link rel="canonical" href="https://dar-alumara.example.com/gifts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="دار الأُمراء">
+  <meta property="og:title" content="الهدايا الفاخرة — دار الأُمراء">
+  <meta property="og:description" content="هدية عطرية لا تُنسى: تغليف ملكي، بطاقة برسالتك، واقتراحات لكل مناسبة.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:locale" content="ar_SY">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://dar-alumara.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "الهدايا", "item": "https://dar-alumara.example.com/gifts.html" }
+    ]
+  }
+  </script>
+</head>
+<body data-page="gifts">
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="مسار التصفح">
+          <a href="index.html">الرئيسية</a>
+          <span class="sep"><svg class="ic"><use href="#i-chevron-left"/></svg></span>
+          <span aria-current="page">الهدايا</span>
+        </nav>
+        <h1>هدايا فاخرة</h1>
+        <p class="ph-sub">اختر العطر، أضف تغليفًا ملكيًا ورسالة شخصية، واهدِ لحظة لا تُنسى بلمسة دار الأُمراء.</p>
+      </div>
+    </div>
+
+    <section class="section tight" style="padding-top:0">
+      <div class="container">
+        <div id="giftBox" aria-busy="true">
+          <div class="gift-grid">
+            <div class="panel-card"><div class="sk-line w30"></div><div class="sk-line w80"></div><div class="sk-line w60"></div><div class="sk-box sk-btn"></div></div>
+            <div class="panel-card"><div class="sk-line w40"></div><div class="sk-line w80"></div><div class="sk-line w70"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="container">
+        <div class="section-head">
+          <div><h2>الهدايا حسب المناسبة</h2><p class="sh-sub">اختر المناسبة ودعنا نقترح الهدية المثالية</p></div>
+        </div>
+        <div class="occ-grid" id="occGrid" aria-busy="true"></div>
+      </div>
+    </section>
+
+    <section class="section band" id="giftPicks" hidden></section>
+
+    <section class="section tight">
+      <div class="container">
+        <div class="section-head">
+          <div><h2>أطقم الهدايا</h2><p class="sh-sub">طقم متكامل جاهز للإهداء بتغليف ملكي</p></div>
+        </div>
+        <div id="giftSets" aria-busy="true">
+          <div class="panel-card"><div class="sk-line w30"></div><div class="sk-line w70"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="container">
+        <div class="section-head">
+          <div><h2>الأكثر رواجًا كهدايا</h2><p class="sh-sub">اختيارات محبوبة تناسب أي مناسبة</p></div>
+          <a class="sec-link" href="shop.html">تصفّح المتجر <svg class="ic"><use href="#i-chevron-left"/></svg></a>
+        </div>
+        <div class="rail-wrap reveal">
+          <button class="rail-btn next" type="button" data-rail="railGiftTop" data-dir="next" aria-label="التالي"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+          <button class="rail-btn prev" type="button" data-rail="railGiftTop" data-dir="prev" aria-label="السابق"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+          <div class="rail" id="railGiftTop"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/gifts.js"></script>
+</body>
+</html>
