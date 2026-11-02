@@ -1,0 +1,32 @@
+{
+  "services": {
+    "studio": {
+      "root": "dar-al-aumara/studio",
+      "framework": "sanity"
+    },
+    "web": {
+      "root": "dar-al-aumara/web",
+      "framework": "nextjs"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/studio",
+      "destination": {
+        "service": "studio"
+      }
+    },
+    {
+      "source": "/studio/(.*)",
+      "destination": {
+        "service": "studio"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "web"
+      }
+    }
+  ]
+}

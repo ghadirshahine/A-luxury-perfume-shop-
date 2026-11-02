@@ -10,10 +10,11 @@ dar-al-aumara/
 └── web/      ← Next.js 16 App Router storefront (reads live from Sanity)
 ```
 
-The Studio stays **standalone** (requirement 9): it is its own Vite app deployed
-by the Sanity CLI, *not* embedded inside the Next.js route tree. The two apps are
-connected only through the shared project + dataset, a read token, CORS, and
-TypeGen-generated types.
+The Studio stays **standalone** (requirement 9): it is its own Vite app, *not*
+embedded inside the Next.js route tree. The two apps are connected through the
+shared project + dataset, a read token, CORS, and TypeGen-generated types. The
+repository-root `vercel.json` deploys them as separate Vercel services under
+one project: the Studio at `/studio` and the storefront on all other paths.
 
 > The old `../../test2/admin.html` entry now redirects to the authenticated
 > Studio at `https://xvmhw7dr.sanity.studio`; its browser-local CRUD has been
@@ -71,8 +72,9 @@ http://localhost:3333      # Studio dev
 http://localhost:3000      # Next.js dev
 https://cdn.sanity.io
 ```
-and your production web origin (e.g. `https://your-web-app.vercel.app`) plus the
-deployed Studio origin (`https://xvmhw7dr.sanity.studio`) once deployed.
+and the shared production Vercel origin (e.g. `https://your-project.vercel.app`).
+The Studio is served at that origin's `/studio` path; it does not need a separate
+public origin or a service binding.
 
 Also add the same hosts under **Allowed Origins (CORS)** with `Credentials`
 enabled so the read token can be used in the browser during preview.
@@ -204,18 +206,21 @@ cd "c:\Users\Golden Hawk\test2\dar-al-aumara\web"; npm run dev
 
 ## 9. Deploy for production
 
-```powershell
-# Studio → https://xvmhw7dr.sanity.studio
-cd "c:\Users\Golden Hawk\test2\dar-al-aumara\studio"; npm run deploy
+Import the **repository root** as a Vercel project so it detects the root
+`vercel.json` and builds both services. Configure the Web service's environment
+with the values from `web/.env.example`, and set:
 
-# Web → Vercel (or any Node host)
-cd "c:\Users\Golden Hawk\test2\dar-al-aumara\web"; npm run build
-```
+- `NEXT_PUBLIC_SANITY_STUDIO_URL=https://your-project.vercel.app/studio`
+- `SANITY_STUDIO_PREVIEW_ORIGIN=https://your-project.vercel.app` in the Studio
+  service's build environment.
 
-In the hosting provider set the same `.env.local` values; point
-`NEXT_PUBLIC_SANITY_STUDIO_URL` and the Studio `SANITY_STUDIO_PREVIEW_ORIGIN` at
-the **deployed** origins, and add those origins to CORS (step 3). `SANITY_API_READ_TOKEN`
-is required in production (`token.ts` throws if missing).
+Use the actual shared Vercel project origin in place of the example above. These
+are public/build-time URLs used by Sanity's browser-side Presentation/Visual
+Editing integration; service bindings are runtime-only and are not appropriate
+for this integration. The apps currently make no internal HTTP service calls, so
+no service bindings are configured. Add the shared origin to Sanity CORS (step
+3). `SANITY_API_READ_TOKEN` is required in production (`token.ts` throws if
+missing); keep all Sanity tokens in the Web service's server-only environment.
 
 ---
 
