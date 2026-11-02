@@ -209,16 +209,20 @@ export async function createOrder(input: CheckoutInput): Promise<CheckoutResult>
       })
 
     if (existingCustomer) {
-      tx.patch(customerId, {ifRevisionID: existingCustomer._rev}).set({
-        name: customer.name,
-        phone: normalizedPhone,
-        email: customer.email,
-        city: customer.city,
-        address: customer.address,
-        lastOrderAt: placedAt,
-      })
-        .setIfMissing({orderCount: 0, firstOrderAt: placedAt})
-        .inc({orderCount: 1})
+      tx.patch(customerId, (patch) =>
+        patch
+          .ifRevisionId(existingCustomer._rev)
+          .set({
+            name: customer.name,
+            phone: normalizedPhone,
+            email: customer.email,
+            city: customer.city,
+            address: customer.address,
+            lastOrderAt: placedAt,
+          })
+          .setIfMissing({orderCount: 0, firstOrderAt: placedAt})
+          .inc({orderCount: 1}),
+      )
     } else {
       tx.create({
         _id: customerId,
@@ -235,9 +239,11 @@ export async function createOrder(input: CheckoutInput): Promise<CheckoutResult>
     }
 
     for (const agg of perProduct.values()) {
-      tx.patch(agg.product._id, {ifRevisionID: agg.product._rev}).set({
-        stock: (agg.product.stock ?? 0) - agg.total,
-      })
+      tx.patch(agg.product._id, (patch) =>
+        patch.ifRevisionId(agg.product._rev).set({
+          stock: (agg.product.stock ?? 0) - agg.total,
+        }),
+      )
     }
 
     await tx.commit()

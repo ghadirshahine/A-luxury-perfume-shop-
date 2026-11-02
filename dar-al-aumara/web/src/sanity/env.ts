@@ -17,8 +17,6 @@ export const projectId = assertValue(
 
 export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2026-02-01'
 
-export const studioUrl = process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || 'http://localhost:3333'
-
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage)

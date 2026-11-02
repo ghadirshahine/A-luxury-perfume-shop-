@@ -9,6 +9,9 @@ type ProductsSearchParams = {
   available?: string
 }
 
+type CategoryOption = {slug: string; title: string}
+type BrandOption = {slug: string; name: string; nameEn?: string}
+
 export default async function ProductsPage({
   searchParams,
 }: {
@@ -28,8 +31,8 @@ export default async function ProductsPage({
     sanityFetch({query: BRANDS_QUERY}),
   ])
   const items = (products ?? []) as ProductCardData[]
-  const categoryOptions = categories ?? []
-  const brandOptions = brands ?? []
+  const categoryOptions = (categories ?? []) as CategoryOption[]
+  const brandOptions = (brands ?? []) as BrandOption[]
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-16">

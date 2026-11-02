@@ -96,7 +96,6 @@ Fill `.env.local`:
 NEXT_PUBLIC_SANITY_PROJECT_ID=xvmhw7dr
 NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_SANITY_API_VERSION=2026-02-01
-NEXT_PUBLIC_SANITY_STUDIO_URL=http://localhost:3333
 
 SANITY_API_READ_TOKEN=pat_xxx          # from step 2 — server only
 SANITY_API_WRITE_TOKEN=pat_yyy         # from step 2 — server only
@@ -210,7 +209,6 @@ Import the **repository root** as a Vercel project so it detects the root
 `vercel.json` and builds both services. Configure the Web service's environment
 with the values from `web/.env.example`, and set:
 
-- `NEXT_PUBLIC_SANITY_STUDIO_URL=https://your-project.vercel.app/studio`
 - `SANITY_STUDIO_PREVIEW_ORIGIN=https://your-project.vercel.app` in the Studio
   service's build environment.
 

@@ -1,5 +1,5 @@
 import {createClient} from 'next-sanity'
-import {apiVersion, dataset, projectId, studioUrl} from '@/sanity/env'
+import {apiVersion, dataset, projectId} from '@/sanity/env'
 
 /**
  * Shared Sanity client for the storefront.
@@ -12,5 +12,4 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: true,
-  studioUrl,
 })
