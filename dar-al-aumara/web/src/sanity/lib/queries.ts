@@ -99,7 +99,7 @@ export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
     families,
     occasions,
     seasons,
-    "recommended": recommended[]->{
+    "recommended": recommended[]->[_type == "product" && defined(slug.current)]{
       _id, name, nameEn, price, currency, "slug": slug.current,
       mainImage{alt, "asset": asset->{url}}
     },

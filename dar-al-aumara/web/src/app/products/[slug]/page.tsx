@@ -17,6 +17,8 @@ export async function generateStaticParams() {
 // Metadata is fetched through the plain (non-live, no-stega) client so invisible
 // Content Source Map characters never leak into <title>/<meta> and break SEO.
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
+  'use cache'
+
   const {slug} = await params
   const product = await client.fetch(PRODUCT_BY_SLUG_QUERY, {slug})
   if (!product) return {title: 'Product not found'}
@@ -43,6 +45,9 @@ export default async function ProductPage({params}: {params: Promise<{slug: stri
 
   const notes = product.fragranceNotes ?? {}
   const sizes = (product.sizes ?? []) as {ml: number; price: number; label?: string}[]
+  const recommended = (
+    (product.recommended ?? []) as unknown as (ProductCardData | null)[]
+  ).filter((item): item is ProductCardData => item !== null && Boolean(item._id && item.slug))
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-16">
@@ -119,11 +124,11 @@ export default async function ProductPage({params}: {params: Promise<{slug: stri
         </div>
       </div>
 
-      {Array.isArray(product.recommended) && product.recommended.length > 0 && (
+      {recommended.length > 0 && (
         <section className="flex flex-col gap-4">
           <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">You may also like</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {(product.recommended as unknown as ProductCardData[]).map((p) => (
+            {recommended.map((p) => (
               <ProductCard key={p._id} product={p} />
             ))}
           </div>

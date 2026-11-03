@@ -1,3 +1,4 @@
+import {Suspense} from 'react'
 import {sanityFetch} from '@/sanity/lib/live'
 import {BRANDS_QUERY, CATEGORIES_QUERY, FILTERED_PRODUCTS_QUERY} from '@/sanity/lib/queries'
 import {ProductCard, type ProductCardData} from '@/components/product-card'
@@ -13,6 +14,18 @@ type CategoryOption = {slug: string; title: string}
 type BrandOption = {slug: string; name: string; nameEn?: string}
 
 export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams: Promise<ProductsSearchParams>
+}) {
+  return (
+    <Suspense fallback={<ProductsFallback />}>
+      <ProductsContent searchParams={searchParams} />
+    </Suspense>
+  )
+}
+
+async function ProductsContent({
   searchParams,
 }: {
   searchParams: Promise<ProductsSearchParams>
@@ -82,6 +95,17 @@ export default async function ProductsPage({
           ))}
         </div>
       )}
+    </main>
+  )
+}
+
+function ProductsFallback() {
+  return (
+    <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-16">
+      <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+        All fragrances
+      </h1>
+      <p className="text-zinc-600 dark:text-zinc-400">Loading fragrances...</p>
     </main>
   )
 }

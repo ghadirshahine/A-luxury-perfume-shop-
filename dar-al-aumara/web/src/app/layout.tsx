@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SanityLive } from "@/sanity/lib/live";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { CartButton } from "@/components/cart-button";
+import { CopyrightYear } from "@/components/copyright-year";
 import { DisableDraftMode } from "@/components/disable-draft-mode";
 import "./globals.css";
 
@@ -61,7 +62,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <div className="flex-1">{children}</div>
 
         <footer className="border-t border-white/10 py-10 text-center text-sm text-zinc-500">
-          © {new Date().getFullYear()} دار الأُمراء
+          © <CopyrightYear /> دار الأُمراء
         </footer>
 
         {/* Real-time content updates (live catalogue). */}
